@@ -41,7 +41,7 @@ You can override storm default configuration by passing environment variables to
 `CONFIG_WORKER_CHILDOPTS` will be add to storm.yaml as `worker.childopts`.
 
 
-Docker Compose
+Docker Compose(1 supervisor)
 ---
 **Pre-Requisites:** [Install Compose](https://docs.docker.com/compose/#installation-and-set-up)
 
@@ -58,6 +58,19 @@ Docker Compose
     **zookeeper:** ```docker-compose -p storm -f ./docker-zookeeper.yml stop```
 
     **storm:** ```docker-compose -p storm -f ./docker-storm.yml stop```
+
+Docker Compose(multiple supervisors)
+---
+    **zookeeper:** ```docker-compose -p storm -f ./docker-zookeeper.yml up``` (pass the -d flag to run container in background)
+
+    **storm:** e.g. 3 supervisor nodes ```docker-compose -p storm -f ./docker-storm.yml scale nimbus=1 ui=1 supervisor=3``
+
+  - To stop cluster:
+
+    **zookeeper:** ```docker-compose -p storm -f ./docker-zookeeper.yml stop```
+
+    **storm:** ```docker-compose -p storm -f ./docker-storm.yml stop```
+
 
 Makefiles
 ---------
