@@ -68,7 +68,7 @@ Docker Compose(multiple supervisors)
     **storm:** e.g. 3 supervisor nodes
     ```
     docker-compose -p storm -f ./docker-storm.yml scale nimbus=1 ui=1 supervisor=3
-    bin/add_hosts.sh
+    bin/add_hosts.sh 3
     ```
 
   - To stop cluster:

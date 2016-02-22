@@ -2,6 +2,12 @@
 
 PROJECT_NAME=storm
 
+if [ -z "$1" ]
+then
+    echo "Usage: $0 NUM_SUPERVISORS"
+    exit 1
+fi
+
 HOSTS_STR="\n"
 
 for v in $(seq 1 $1)
