@@ -61,9 +61,15 @@ Docker Compose(1 supervisor)
 
 Docker Compose(multiple supervisors)
 ---
-    **zookeeper:** ```docker-compose -p storm -f ./docker-zookeeper.yml up``` (pass the -d flag to run container in background)
+  - To start cluster:
+  
+    **zookeeper:** ```docker-compose -p storm -f ./docker-zookeeper.yml up -d``` 
 
-    **storm:** e.g. 3 supervisor nodes ```docker-compose -p storm -f ./docker-storm.yml scale nimbus=1 ui=1 supervisor=3``
+    **storm:** e.g. 3 supervisor nodes
+    ```
+    docker-compose -p storm -f ./docker-storm.yml scale nimbus=1 ui=1 supervisor=3
+    bin/add_hosts.sh
+    ```
 
   - To stop cluster:
 
